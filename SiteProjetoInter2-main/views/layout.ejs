@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Roboto+Condensed&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" type="imagex/png" href="/public/img/favicon.ico">
+	<!-- jQuery -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+	<!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/public/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<title><%=((typeof titulo === "undefined" || !titulo) ? "Cinemystik" : (titulo + " - Cinemystik")) %></title>
+	<%- defineContent("styles") %>
+
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg bg-light fixed-top">
+        <div class="container-xl">
+          <a class="navbar-brand right-50" href="/"> 
+            <img width="250px" src="/public/img/logo.png"/>
+         </a>        
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    
+          <div class="collapse navbar-collapse" id="navbarsExample07XL">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link right-50 left-50 letras" href="/filme_do_dia" >Filme do dia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link right-50 letras" href="/galeria">Galeria</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link right-50 letras" href="/avaliar">Avaliar</a>  
+              </li>
+              <li class="nav-item">
+                <a class="nav-link right-50 letras" href="/sobre">Sobre nós</a>
+              </li>
+            </ul> 
+          </div>
+        </div>
+      </nav>
+	<%- body %>
+
+	<%- defineContent("scripts") %>
+  <div class="bg-dark color-white margin-top-2">
+        <div class="container text-center bg-dark color-white">
+            <div class="row">
+                <div class="col-sm-4 margin-top-2">
+                    <h2>Cinemystik</h2>
+                    <img src="/public/img/ticket.png" alt="ticket" width="80">
+                </div>
+                <div class="col-sm-4 margin-top-2">
+                    <h2>Links:</h2>
+                    <ul class="no-decoration">
+                      <li><a href="https://github.com/Diiego2202/SiteProjetoInter2" class="color-white">Repositório Github</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 margin-top-2">
+                  <h2>Criadores:</h2>
+                  <ul class="no-decoration color-white">
+                    <li><a href="https://github.com/Diiego2202" class="color-white">Diego</a></li>
+                    <li><a href="https://github.com/Geovannarc" class="color-white">Geovanna</a></li>
+                    <li><a href="https://github.com/henriquehdc" class="color-white">Henrique D.</a></li>
+                    <li><a href="https://github.com/henriquefrata" class="color-white">Henrique F.</a></li>
+                    <li><a href="https://github.com/ViniPierre" class="color-white">Vinicius</a></li>
+                  </ul>
+                </div>
+            </div>
+    </div>
+    <script src="/public/js.js"></script>
+</body>
+</html>

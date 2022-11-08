@@ -1,0 +1,73 @@
+body{
+    color: #f0f0f0;
+    font-size: 1.4rem;
+    padding: 15px;
+    margin: 12px;
+    margin-top: 35px;
+}
+
+.font{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.alinhado{
+    padding: 40px;
+}
+
+.margin-top-2{
+    margin-top: 2rem;
+}
+
+.colunas{
+    padding-bottom: 30px;
+}   
+
+.fundinho{
+    padding: 20px;
+    background-color: #00000021;
+    max-width: 650px;
+    min-height: 350px;
+}
+
+.espreme{
+    max-width: 800px;
+    text-align: center;
+}
+
+.margin-top{
+    margin-top: 7rem;
+}
+
+.fundo_bloco{
+    padding: 20px;
+    background-color: white;
+    color:black;  
+    width: 400px;
+    height: 400px;
+}
+
+.padd{
+    padding: 25px;
+}   
+
+.fundo1{
+   
+    text-align: center;
+    color: yellow;
+}
+
+.centro{
+    text-align: center;
+    margin: auto;
+}
+.tamanhomax{
+    max-width: 300px;
+    margin: auto;
+}
+
+.paddperfil{
+    padding-bottom: 40px;
+    padding-top:20px ;
+}
+
+

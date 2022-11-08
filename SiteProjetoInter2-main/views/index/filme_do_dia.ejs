@@ -1,0 +1,73 @@
+﻿<head>
+    <link rel="stylesheet" href="/public/filme_do_dia.css" />
+</head>   
+
+<% let i = 0; %> 
+<div class="container-fluid alinhado fundo1">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row espreme justify-content-center">
+                <h1 style="font-size: 80px; color: white;" class="text-center">Filme do dia</h1>
+            </div>
+            <div class="row colunas text-center justify-content-center">
+                <div class="fundinho rounded">
+                    <h1> <%= filme[i].nome %>  (<%= filme[i].ano %>) </h1>
+                    <hr class="justify-content-center">
+                    <h2>Diretor: <%= filme[i].diretor %> </h2>
+                    <h3>Gênero: <%= filme[i].genero %> | Subgênero: <%= filme[i].subgenero %> </h3>
+                    <br>
+                    <p> <%= filme[i].sinopse %> </p>
+                </div>
+             </div>
+        </div>
+        <div class="col-md-6 espreme">
+            <p class="text-center"><img src="/public/img/filmes/<%= filme[i].idFilme %>.jpg" alt="posterFilme" width="400" class=" rounded"></p>
+        </div>
+    </div>              
+</div>
+
+<div class="container-fluid text-center random color-white">
+    <h1 class="title">SURPREENDA-ME</h1>
+    <p class="text">Não sabe o que assistir? Experimente nossa função aleatória de filmes!</p>
+    <div class="centered">
+        <%
+            if (filme.length > 1) {
+        %>
+        <button class="botao bold" type="button" id="botaoaleatorio" onclick="window.location.reload()">
+            <i class="fas fa-random padding-10"></i>   ALEATÓRIO
+        </button>
+        <% } else { %>
+        <a class="botao bold" id="botaoaleatorio" href="/aleatorio/#divAleatorio">
+            <i class="fas fa-random padding-10"></i>   ALEATÓRIO
+        </a>
+        <% } %>
+    </div>
+</div>
+
+<%
+    let j = 1;
+    if (filme.length > 1) {
+%> 
+<div class="container-fluid alinhado" id="divAleatorio">
+    <div class="row">
+        <div class="col-md-6 espreme">
+            <p class="text-center"><img src="/public/img/filmes/<%= filme[j].idFilme %>.jpg" alt="poster" width="400" class=" rounded"></p>
+        </div>
+        <div class="col-md-6">
+            <div class="row espreme">
+                <h1 style="font-size: 80px; color: white;" class="text-center">Filme aleatório</h1>
+            </div>
+            <div class="row colunas text-center justify-content-center">
+                <div class="fundinho rounded">
+                    <h1> <%= filme[j].nome %>  (<%= filme[j].ano %>) </h1>
+                    <hr class="justify-content-center">
+                    <h2>Diretor: <%= filme[j].diretor %> </h2>
+                    <h3>Gênero: <%= filme[j].genero %> | Subgênero: <%= filme[j].subgenero %> </h3>
+                    <br>
+                    <p> <%= filme[j].sinopse %> </p>
+                </div>
+             </div>
+        </div>
+    </div>              
+</div>
+<% } %>

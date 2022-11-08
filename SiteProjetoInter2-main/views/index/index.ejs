@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="/public/index.css" />
+</head> 
+	<title>CineMystic</title>
+        
+        <div class="filme">
+            <section>
+                <div class="textofilme"> 
+                <img src="public/img/fundo.png" id="Tela">
+                <h2 id="Texto">Cinemystic</h2>
+                 </div>
+                <img src="public/img/Assento.png" id="Assento">
+                <img src="public/img/Cortinadireita.png" id="Cortinadireita">
+                <img src="public/img/Cortinaesquerda.png" id="Cortinaesquerda">
+                
+            </section>
+        </div>
+    
+    
+            <div class="fundohomepage">
+                  <h1 style="font-size: 45px; max-width: 50%;">Todos os dias, um ótimo filme e uma pequena descrição sobre ele</h1>
+                  <h3>Onde estiver,diretamente do seu navegador</h3>
+                 <button type="button" class="botao" onclick="window.location.href = '/filme_do_dia'">FILME DO DIA</button>
+            </div>
+                
+            <div class="fundo2"> 
+                <h1 style="font-size: 45px;">Tenha acesso a toda nossa curadoria de filmes</h1>
+                <h3>Os melhores filmes, selecionados a dedo para você</h3>
+                    <p align="right">
+                    <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_kfrepttx.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                    </p>
+                <button type="button" class="botao" onclick="window.location.href = '/galeria'">GALERIA</button>
+    
+            </div> 
+           
+
+        
+        <div class="container-fluid gordurinha">
+            <div class="row justify-content-center">
+                <div class="four col-md-3">
+                    <div class="counter-box"> <i class="fa fa-film" aria-hidden="true"></i> <span class="counter"><%= totfilmes %>+</span>
+                        <p>Filmes cadastrados</p>
+                    </div>
+                </div>
+                <div class="four col-md-3 ">
+                    <div class="counter-box colored"> <i class="fa fa-check-square" aria-hidden="true"></i> <span class="counter"><%= totcadastros %>+</span>
+                        <p>Avaliações</p>
+                    </div>
+                </div>
+                <div class="four col-md-3">
+                    <div class="counter-box"> <i class="fa fa-user-secret" aria-hidden="true"></i> <span class="counter">10+</span>
+                        <p>Gênero diferentes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script type="text/javascript">
+            
+            
+            let Tela = document.getElementById("Tela");
+            let Assento = document.getElementById("Assento");
+            let Cortinadireita = document.getElementById("Cortinadireita");
+            let Cortinaesquerda = document.getElementById("Cortinaesquerda");
+            let Texto = document.getElementById("Texto");
+            
+            window.addEventListener('scroll', function(){
+                var value = window.scrollY;
+                
+                Cortinadireita.style.right = (-value * 2.5) + 'px';
+                Cortinaesquerda.style.left = (-value * 2.5) + 'px';
+                
+            })
+            </script>       
+    </body>

@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="/public/avaliar.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+<form id="form" class="container margin-top-7 margin-bottom g-3 align-middle font">
+    <div class="row">
+	<div class="form-group col-md-6">
+		<label for="nome" class="form-label">Nome</label>
+		<input type="text" id="nome" name="nome" class="form-control" placeholder="Nome do usuário" aria-label="First name">
+    </div>
+	<div class="form-group col-md-6">
+		<label for="inputAddress2" class="form-label">Nota</label>
+		<input type="number" class="form-control" id="nota" name="nota" placeholder="Nota do filme" max="5" min="0">
+	</div>
+	</div>
+    <div class="form-group margin-top-1">
+      <label for="inputAddress" class="form-label">Comentário</label>
+	  <textarea type="text" id="comentario" name="comentario" class="form-control" placeholder="Comentários sobre o filme" cols="30" rows="4"></textarea>
+    </div>
+    <div class="form-group margin-top-1">
+    	<label for="idFilme" class="form-label">Filme</label>
+      	<select id="idFilme" name="idFilme" class="form-select" onchange="exibirAvaliacoes()">
+			<option value="" selected>Selecione o filme</option>
+			<% for (let i = 0; i < filme.length; i++) { %>
+			<option value="<%= filme[i].idFilme %>"><%= filme[i].nome %></option>
+			<% } %>
+    	</select>
+    </div>
+    <div class="col-12 margin-top-1 font">
+      <button type="submit" class="btn btn-success">Avaliar</button>
+    </div>
+</form>
+
+<div id="divAvaliacoes"></div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="/public/js/fetch.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/additional-methods.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/localization/messages_pt_BR.min.js"></script>
+
+<script type="text/javascript">
+
+	let cadastro = <%- JSON.stringify(cadastro) %>;
+
+	let idFilme = document.getElementById("idFilme");
+	let divAvaliacoes = document.getElementById("divAvaliacoes");
+
+	let expr1 = /\</g, expr2 = /\>/g;
+	function encode(x) {
+		return x.replace(expr1, "&lt;").replace(expr2, "&gt;");
+	}
+
+	function exibirAvaliacoes() {
+		let html = "";
+
+		let id = parseInt(idFilme.value);
+
+		if (!isNaN(id)) {
+			for (let i = 0; i < cadastro.length; i++) {
+				let avaliacao = cadastro[i];
+				if (avaliacao.idFilme !== id) {
+					continue;
+				}
+
+				html += `	
+					<div class="caixas">
+						<hr>
+						<h1>Nome :${encode(avaliacao.nome)}</h1>
+						<h3 class="amarelo">Nota: ${avaliacao.nota}</h3>
+						<p>Comentário: ${encode(avaliacao.comentario)}</p>
+					</div>
+				`;
+			}
+		}
+
+		divAvaliacoes.innerHTML = html;
+	}
+
+	$("#form").validate({
+		rules: {
+			// Aqui o que vale é o name, não o id!
+			nome: {
+				required: true,
+				minlength: 3
+			},
+            nota: {
+				required: true
+			},
+			comentario: {
+				required: true
+			},
+			idFilme: {
+				required: true
+			}
+		},
+
+		submitHandler: function (form) {
+			// Não pode simplesmente fazer submitHandler: criarPessoa, porque criarPessoa() é async... :(
+            cadastrarAvaliacao(form);
+		}
+	});
+
+	async function cadastrarAvaliacao(form) {
+		// Vamos prevenir cliques duplos/acidentais :)
+		if (fetchAtivo) {
+			return;
+		}
+
+		let opcoes = {
+			method: "POST",
+			// Esta forma não depende do jQuery, não precisa configurar o header e
+			// ainda permite o envio de arquivos! Mas precisa de uma linha de configuração
+			// a mais do lado do Node.js!
+		    body: new FormData(form)
+		};
+
+		try {
+			let response = await fetch("/cadastrarAvaliacao", opcoes);
+
+			if (response.ok) {
+				// Limpa os campos para facilitar a criação da próxima pessoa.
+				form.reset();
+				// Limpa os erros e sucessos.
+				$(form).validate().resetForm();
+
+				Swal.fire("Sucesso!", "Avaliação cadastrada", "success");
+			} else {
+				Swal.fire("Erro!", "Ocorreu um erro na avaliação", "error");
+			}
+		} catch (ex) {
+			Swal.fire("Erro!", "Erro de rede: " + ex.message, "error");
+		}
+	}
+</script>

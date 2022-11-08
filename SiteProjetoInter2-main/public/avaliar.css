@@ -1,0 +1,36 @@
+.margem{
+    margin-top: 50px;
+}
+
+.font{
+    font-size: 1.6rem;
+}
+
+.margin-top-7{
+    margin-top: 24vh;
+}
+
+.margin-bottom{
+    margin-bottom: 18vh;
+}
+
+.margin-top-1{
+    margin-top: 1.2rem;
+}
+
+.margin-top-2{
+    margin-top: 2rem !important;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+.amarelo{
+    color: #ffca3d;
+}
+
+.caixas {
+    text-align: center;
+    display: inline;
+}

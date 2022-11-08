@@ -1,0 +1,255 @@
+/* INICIO CSS INDEX */
+body{
+    background-color: #1a1a1a;
+}
+.menuteste{
+    background-color: #f0f0f0;
+    right: 0;
+    left: 0;  
+    top: 0; 
+}
+
+.color-black{
+    color: black;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.letras{
+   color: black;
+   text-decoration:none;
+   font-size: 25px;
+}
+
+.fundo1{
+    background-image: url(img/Fundofilmedodia.png);
+    background-position: center;
+    background-size: cover;
+    margin-top: 80px;
+    min-height: 100vh;
+}
+
+.color-white{
+    color: white;
+}
+
+.no-decoration{
+    list-style: none;
+}
+.margin-top-7{
+    margin-top: 7rem;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.text-left{
+    text-align: left;
+}
+
+.contain{
+    position: relative;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centered{
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.titulo-1{
+    font-size: 4rem;
+    word-spacing: 0.5rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.titulo-2{
+    font-size: 3rem;
+    font-family: 'Bebas Neue', cursive;
+}
+
+.p-1{
+    padding: 10px;
+    font-size: 1.2rem;
+    max-width: 60%;
+
+}
+
+.italic{
+    font-style: italic;
+}
+
+.padding-10{
+    padding: 10px;
+}
+
+.botao{
+    padding: 10px 20px 10px 20px;
+    border-radius: 5px;
+    background-color:#ffca3d;
+    color: black;
+    border: none;
+    box-shadow: 1px 1px 2px #0d0d0d;
+    text-decoration: none;
+}
+
+.botaofechar{
+    padding:3px 10px;
+    border-radius: 5px;
+    background-color:#ffca3d;
+    color: black;
+    border: none;
+    box-shadow: 1px 1px 2px #0d0d0d;
+    text-decoration: none;
+    text-align: left;
+    margin-bottom: 75px;
+}
+
+
+.width-100{
+    width: 100%;
+}
+
+.color-red{
+    color: rgb(129, 0, 0);;
+}
+
+.max-width-600{
+  max-width: 600px;
+}
+
+.padding-50{
+    padding: 50px;
+}
+
+.margin-top-50{
+    margin-top: 50px;
+}
+
+hr {
+    width: 45%;
+    padding: 2px;
+    opacity: 1 !important;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.padding-0{
+    padding: 0px;
+}
+
+.random{
+    max-width: 100%;
+    padding: 270px 20px;
+}
+
+.bold{
+    font-weight: 600;
+}
+
+.bg-black{
+    background-color: black;
+}
+
+.bg-white{
+    background-color: white;
+}
+
+.margin-0{
+    margin-top: 0 !important;
+}
+
+.v-align{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.no-style{
+    list-style: none;
+}
+
+.right-50{
+    margin-right: 50px;
+}
+
+.left-50{
+    margin-left: 50px;
+}
+
+.block{
+    max-width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 250px 20px;
+    max-height: 1000px;
+}
+
+.random{
+    padding: 250px 20px;
+    max-width: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+a:hover{
+    color: black !important;
+    text-decoration: none !important;
+}
+
+.fundoserie {
+    background-image: url('img/KeX0g7.gif');
+    background-size: cover;
+    background-position: center center;
+    padding: 40vh 20px 20px;
+}
+
+.img-galeria{
+    margin-bottom: 2rem;
+
+}
+
+.padd{
+    padding: 10px;
+    margin: auto;
+}
+
+/* testes do diego */
+
+.alinhado{
+    padding: 40px;
+    color: black;
+    font-size: 20px;
+    background-color: #212121;
+}
+
+.colunas{
+    padding-bottom: 30px;
+}   
+
+.fundinho{
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ffcb3d;
+    max-width: 650px;
+}
+
+.espreme{
+    margin-top: 150px;
+}
+

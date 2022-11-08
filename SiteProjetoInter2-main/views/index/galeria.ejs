@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/public/filme_do_dia.css" />
+    <div class="container-fluid margin-top-7">
+      <div class="row">
+        <% let j = 0;  %>
+          <% do{ %> 
+            <% for(let i = 0; i <4; i++){ %> 
+              <% if(filme[j+i] != null){ %> 
+              <div class="col-sm-3 padd">
+                <div class="card img-galeria" >
+                  <img class="card-img-top" width="600px" height="500px" src="/public/img/filmes/<%= filme[j+i].idFilme %>.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title color-black text-center"><%= filme[j+i].nome %></h5>
+                    <a class="btn botao width-100" id ="" onclick="mostraDetalhes('preview<%= filme[(j+i)].idFilme %>');">SAIBA MAIS</a>
+                  </div>
+                </div>
+                </div>
+
+              <% } }%>
+              <% for(let i = 0; i <4; i++){ %> 
+                <% if(filme[j+i] != null){ %> 
+              <div class="saibamais hide" id="preview<%= filme[j+i].idFilme %>">
+                <div class="container-fluid">
+                  <div class="row">
+
+                    <div class="col-sm-7" style=" text-align: left;">
+                      <a class="btn botaofechar" onclick="fechar();" style="font-size: 20px;"> X </a>
+                      <h3 style ="font-size: 1.8rem;"><%= filme[j+i].nome %> (<%= filme[j+i].ano %> ) </h3>
+                      <h4 style="font-size: 1.6rem;"><%= filme[j+i].genero %> - <%= filme[j+i].subgenero %></h4>
+                      <p style ="font-size: 1.2rem;"><%= filme[j+i].sinopse  %>  </p>
+                      
+                    </div>
+                    <div class="col-sm-5">
+                      <img width="400px" height="500px" src="/public/img/filmes/<%= filme[j+i].idFilme %>.jpg" style="padding-bottom:40px; ;"/>
+                    </div>
+                  </div>  
+                </div>
+              </div>
+              <% } }%>
+              <% j = j + 4%> 
+
+          <% if(j%4 == 0){ %>
+            </div>
+            <div class="row">
+          <% } %> 
+          <% }while(j<filme.length) %> 
+      </div>
+
+<script>
+let ultimo = null;
+
+  function mostraDetalhes(id){
+    if (ultimo) {
+      ultimo.classList.remove('show');
+      ultimo.classList.add('hide');
+    }
+
+    ultimo = document.getElementById(id);
+    ultimo.classList.remove('hide');
+    ultimo.classList.add('show');
+    
+   }
+function fechar(){
+  ultimo.classList.remove('show');
+      ultimo.classList.add('hide');
+
+}
+  
+
+  </script>
+</div>

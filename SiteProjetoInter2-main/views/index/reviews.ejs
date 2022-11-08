@@ -1,0 +1,122 @@
+<link rel="stylesheet" href="/public/filme_do_dia.css" />
+    <div class="container-fluid margin-top-7">
+      <div class="row">
+        <% let j = 0;  %>
+          <% do{ %> 
+            <% for(let i = 0; i <4; i++){ %> 
+              <% if(cadastro[j+i] != null){ %> 
+              <div class="col-sm-3 padd">
+                <div class="card img-galeria" >
+                  <img class="card-img-top" width="600px" height="500px" src="/public/img/filmes/1.jpg" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title color-black text-center"><%= cadastro[j+i].nome %></h5>
+                    <a class="btn botao width-100" id ="" onclick="mostraDetalhes('preview<%= cadastro[(j+i)].idCadastro %>');">REVIEW</a>
+                  </div>
+                </div>
+                </div>
+
+              <% } }%>
+              <% for(let i = 0; i <4; i++){ %> 
+                <% if(cadastro[j+i] != null){ %> 
+              <div class="review hide" id="preview<%= cadastro[j+i].idCadastro %>">
+                <div class="container-fluid">
+                  <div class="row">
+
+                    <div class="col-sm-7" style=" text-align: left;">
+                      <a class="btn botaofechar" onclick="fechar();" style="font-size: 20px;"> X </a>
+                      <h3 style ="font-size: 1.8rem;"><%= cadastro[j+i].nome %></h3>
+                      <h4 style="font-size: 1.6rem;"><%= cadastro[j+i].nota %></h4>
+                      <p style ="font-size: 1.2rem;"><%= cadastro[j+i].comentario  %></p>
+                      
+                    </div>
+                  </div>  
+                </div>
+              </div>
+              <% } }%>
+              <% j = j + 4%> 
+
+          <% if(j%4 == 0){ %>
+            </div>
+            <div class="row">
+          <% } %> 
+          <% }while(j<cadastro.length) %> 
+      </div>
+
+<script>
+let ultimo = null;
+
+  function mostraDetalhes(id){
+    if (ultimo) {
+      ultimo.classList.remove('show');
+      ultimo.classList.add('hide');
+    }
+
+    ultimo = document.getElementById(id);
+    ultimo.classList.remove('hide');
+    ultimo.classList.add('show');
+    
+   }
+function fechar(){
+  ultimo.classList.remove('show');
+      ultimo.classList.add('hide');
+
+}
+  
+
+  </script>
+</div>
+
+<div class="carousel-inner tamanhomax">
+    <div class="carousel-item active">
+      <h2 class="centro"> 
+        Diego Calciolari Gordiano
+      </h2>     
+      <img src="public/img/diego.jpg" width="300px" height="400px" alt="Los Angeles" class="d-block" >
+      <p class="paddperfil centro">
+        Estudante de Sistemas de informação (2° Semestre) na ESPM | 
+        Filme favorito: Velozes e furiosos 
+      </p>
+    </div>
+
+    <div class="carousel-item">
+      <h2 class="centro"> 
+        Geovanna
+      </h2> 
+      <img src="public/img/dalla.jpg" width="300px" height="400px" alt="New York" class="d-block" >
+      <p class="paddperfil centro">
+        texto descrição.
+      </p>
+    </div>
+
+    <div class="carousel-item">
+      <h2 class="centro"> 
+        Henrique Dalla Cort
+      </h2> 
+      <img src="public/img/dalla.jpg" width="300px" height="400px" alt="Chicago" class="d-block" >
+      <p class="paddperfil centro">
+        Gosto de batata frita.
+      </p>
+    </div>
+
+    <div class="carousel-item">
+      <h2 class="centro"> 
+          Henrique M. Frata
+      </h2> 
+      <img src="public/img/frata.png" width="300px" height="400px" alt="New York" class="d-block" >
+      <p class="paddperfil centro">
+          Consagrado campeão invicto do torneio de streetball em Valinhos, aspirante a atleta e ainda por cima, Techer.
+      </p>
+    </div>
+
+    <div class="carousel-item">
+      <h2 class="centro"> 
+          Vinicius
+      </h2> 
+      <img src="public/img/dalla.jpg" width="300px" height="400px" alt="New York" class="d-block" >
+      <p class="paddperfil centro">
+        Estudante de Sistemas de informação (2° Semestre) na ESPM | 
+        Filme favorito: La La Land
+      </p>
+    </div>
+
+  </div>
